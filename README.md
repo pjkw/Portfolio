@@ -1,9 +1,16 @@
 # Portfolio
 
 
+# RPG Game
+
+I wanted to make a vertical slice for an RPG game. Wtih a vertical slice I could experiment with systems, while efficiently moving forward.
+
 # Version Control
 
-Making an open world game is a huge undertaking. I use Github and git for version in 90% of all cases. However, with this open world game I moved over to Plastic SCM.
+
+
+
+I use Github and git for version in 90% of all cases. However, with this open world game I moved over to Plastic SCM.
 
 I did try LFS with Git, and while the solution can work for large projects, I decided to give Plastic SCM a try, the version control company Unity recently purchased.
 
