@@ -3,7 +3,7 @@
 
 # RPG Game
 
-I wanted to make a vertical slice for an RPG game. Wtih a vertical slice I could experiment with systems, while efficiently moving forward.
+I wanted to make a vertical slice for an RPG game. Wtih a vertical slice I could experiment with systems, while efficiently moving forward. I've on RPG games before and this time I wanted to put to use the lessons I've learned from the past.
 
 # Player Start
 
