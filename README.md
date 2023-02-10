@@ -40,7 +40,12 @@ By default, Unity comes with the ambient light set to a middle gray, which can b
 
 ![Ambient Light](https://github.com/pjkw/Portfolio/blob/main/images/Ambient%20Light.png)
 
-Now we will add 3 point lighting to the scene to light up the details in the shadows, and from different sides. Essentially we will have a main light, a rim light, and a key light.
+Now we will add three point lighting to the scene to light up the details in the shadows, and from different sides. Essentially we will have a main light, a rim light, and a key light.
+
+![3 Point Lighting](https://github.com/pjkw/Portfolio/blob/main/images/Dragon%202.png)
+
+After adding three point lighting, we are now getting much more details in the texture. However, from far away the details can blend since the dragon is black. In a dark area, such as a dungeon, we can add a moving light on top of the dragon to get extra detail, while still having our scene be dark. I noticed they did this in the Dark Souls games, where if you're running around a dungeon you can tell there is an orb of light around the character. We can add this later when building out the level.
+
 
 
 # Input System
