@@ -25,6 +25,11 @@ To start off we create a plane with a checkered material to keep things simple a
 
 For the dragon, we will be using the Unka dragon asset from the Unity asset store: https://assetstore.unity.com/packages/3d/characters/creatures/unka-the-dragon-84283
 
+Even with turning the skybox back on, the dragon is too dark in the shadows and we are losing details.
+
+![Dragon](https://github.com/pjkw/Portfolio/blob/main/images/Dragon.png)
+
+
 
 
 # Input System
