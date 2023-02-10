@@ -1,5 +1,8 @@
 # Portfolio
 
+Welcome to my portfolio! I love working with Unity and C#! Originally I started off as an FOSS developer, working with Linux and open source tools. However after moving to Unity, I fell in love with C#. The language is really, and gives the benefit of strongly typed languages with a lot of ease of convience features.
+
+I started my first Unity project in 2018, and still remember jumping into the editor and being flooded with many cool new features. The journey was long, but I have consistently worked in the Unity editor ever since, and hope to share here my portfolio and some details of the process.
 
 # RPG Game
 
