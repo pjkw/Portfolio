@@ -80,6 +80,322 @@ public class CharacterState : MonoBehaviour
 }
 ```
 
+Next we will create a DragonStateManager, which will be the brains behind the AI dragon:
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CharacterStateManager : MonoBehaviour
+{
+    // this is the custom script for this script
+    // this will be the only script we want to rewrite
+
+    [SerializeField] CharacterLineOfSight characterLineOfSight;
+    [SerializeField] CharacterCombat characterCombat;
+    [SerializeField] CharacterState characterState;
+    [SerializeField] CharacterStateText characterStateText;
+    [SerializeField] CharacterMovementController characterMovementController;
+    [SerializeField] CharacterAnimation characterAnimation;
+    [SerializeField] CharacterAnimationEvents characterAnimationEvents;
+    [SerializeField] Timer timer;
+    [SerializeField] Animator animator;
+    [SerializeField] CharacterNavMesh characterNavMesh;
+    [SerializeField] Transform characterTransform;
+    [SerializeField] Transform playerTransform;
+    [SerializeField] CharacterKnockback characterKnockback;
+
+
+    public GameObject healthBar;
+    public GameObject character;
+
+    public GameObject stateText;
+
+    float time = 0.0f;
+    bool runTimer = false;
+    bool alreadyAddedToNumberOfAttackingEnemies = false;
+
+    void Start()
+    {
+        GameManager.OnPlayerDeathEvent += OnPlayerDeathEvent;
+    }
+
+    void Update()
+    {
+        SwitchState();
+        UpdateStateText();
+        RunTimer();
+    }
+
+    void StartTimer()
+    {
+        runTimer = true;
+    }
+
+    void StopTimer()
+    {
+        runTimer = false;
+    }
+
+    void ResetTimer()
+    {
+        time = 0.0f;
+    }
+
+    void RunTimer()
+    {
+        if (runTimer)
+        {
+            time += Time.deltaTime;
+        }
+    }
+
+    void UpdateStateText()
+    {
+        characterStateText.UpdateText(characterState.state.ToString());
+    }
+
+    void OnPlayerDeathEvent()
+    {
+        characterState.state = CharacterState.State.PlayerDefeated;
+    }
+
+    void OnSpottedPlayer()
+    {
+        if (characterLineOfSight.spotted)
+        {
+            // we will need some sort of state machine check here so that we don't revert back to the pursue state
+            characterState.state = CharacterState.State.Pursue;
+        }
+    }
+
+    bool CheckIfWithinAttackingDistance()
+    {
+        return characterMovementController.withinAttackingDistance;
+    }
+
+    void ChooseRandomAttack()
+    {
+        if (!CheckIfDoneAttacking()) return;
+
+        int dice = RollDice(1, 3);
+
+        if (dice == 1)
+        {
+            characterAnimation.Attack1();
+        }
+
+        else if (dice == 2)
+        {
+            characterAnimation.Attack2();
+        }
+    }
+
+    bool CheckIfDoneAttacking()
+    {
+        return characterAnimationEvents.CheckIfDoneAttacking();
+    }
+
+    void ReturnToOriginalPosition()
+    {
+        characterMovementController.ReturnToOriginalPosition();
+    }
+
+    void SwitchState()
+    {
+        switch(characterState.state)
+        {
+            case CharacterState.State.None:
+
+                OnSpottedPlayer();
+                break;
+
+            case CharacterState.State.Pursue:
+                // this should be a separate state
+
+                GameState.instance.combatState = GameState.CombatState.InCombat;
+
+                characterMovementController.WalkTowardPlayer();
+
+
+                if (CheckIfWithinAttackingDistance())
+                {
+                    characterState.state = CharacterState.State.Attacking;
+                }
+
+                if (!alreadyAddedToNumberOfAttackingEnemies)
+                {
+                    alreadyAddedToNumberOfAttackingEnemies = true;
+
+                    GameState.instance.numberOfAttackingEnemies += 1;
+                }
+
+            
+
+                /*
+                characterCombat.Engage();
+
+                if (CheckIfWithinAttackingDistance())
+                {
+                    characterState.state = CharacterState.State.Attacking;
+                }
+
+
+                */
+
+                break;
+
+            case CharacterState.State.Attacking:
+
+                characterAnimation.BattleStance();
+                characterNavMesh.StopAgent();
+                characterTransform.LookAt(playerTransform);
+
+                ChooseRandomAttack();
+                
+                // check if done attacking to transition to the done attacking state
+
+                if (CheckIfDoneAttacking())
+                {
+                    characterState.state = CharacterState.State.DoneAttacking;
+                }
+
+                // if player left radius go back to pursue
+
+                if (!CheckIfWithinAttackingDistance())
+                {
+                    characterState.state = CharacterState.State.Pursue;
+                }
+
+                break;
+
+            case CharacterState.State.DoneAttacking:
+                // so here we are going to attack again when done attacking,
+                // but we will need to check whether the player is still
+                // within the attack radius
+                // we want some sort of pause so we don't keep spamming attacks,
+                // and give the player a chance to attack
+
+                // last todo here: create a pause between attacks
+
+                if (CheckIfWithinAttackingDistance())
+                {
+                    // characterAnimation.ResetAnimation();
+                    ChooseRandomAttack();
+
+                    // characterState.state = CharacterState.State.Attacking;
+                }
+
+                else
+                {
+                    if (!animator.GetBool("attackDone")) return;
+
+                    // pause
+
+                    characterState.state = CharacterState.State.Pause;
+
+                    // previous state transition, now we will transition from pause to pursue
+
+                    // characterState.state = CharacterState.State.Pursue;
+                }
+                
+                break;
+
+            case CharacterState.State.Pause:
+
+                StartTimer();
+
+                if (time > RollDecimalDice(0.0f, 3.0f))
+                {
+
+                    ResetTimer();
+
+                    characterState.state = CharacterState.State.Pursue;
+                }
+
+                break;
+
+
+            case CharacterState.State.TookDamage:
+
+                // pause when took damage
+
+                characterNavMesh.StopAgent();
+
+                characterKnockback.PerformKnockback();
+
+                StartTimer();
+
+                if (time > RollDecimalDice(1.0f, 3.0f))
+                {
+                    ResetTimer();
+
+                    characterState.state = CharacterState.State.Pursue;
+                }
+
+                break;
+
+            case CharacterState.State.PlayerDefeated:
+
+                ReturnToOriginalPosition();
+
+                break;
+
+            case CharacterState.State.Death:
+
+                CleanUp();
+
+                characterNavMesh.StopAgent();
+
+                // ensures we just run the Death state once
+
+                GameState.instance.numberOfAttackingEnemies -= 1;
+                
+
+                characterState.state = CharacterState.State.PostDeath;
+
+                break;
+
+            case CharacterState.State.PostDeath:
+
+                break;
+        }
+    }
+
+    void CleanUp()
+    {
+        // remove health bars
+
+        healthBar.SetActive(false);
+
+        // remove colliders
+
+        foreach (Collider collider in character.GetComponents<Collider>())
+        {
+            collider.enabled = false;
+        }
+
+        // clear state text if turned on 
+
+        stateText.SetActive(false);
+    }
+
+    float RollDecimalDice(float start, float end)
+    {
+        float result = UnityEngine.Random.Range(start, end);;
+        // Debug.Log(result);
+
+        return result;
+    }
+
+    int RollDice(int start, int end)
+    {
+        return UnityEngine.Mathf.RoundToInt(UnityEngine.Random.Range(start, end));
+    }
+}
+
+```
 
 # Input System
 
