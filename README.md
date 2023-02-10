@@ -33,6 +33,8 @@ By default, Unity comes with the ambient light set to a middle gray, which can b
 
 ![Ambient Light](https://github.com/pjkw/Portfolio/blob/main/images/Ambient%20Light.png)
 
+Now we will add 3 point lighting to the scene to light up the details in the shadows, and from different sides. Essentially we will have a main light, a rim light, and a key light.
+
 
 # Input System
 
