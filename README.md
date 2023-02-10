@@ -46,6 +46,39 @@ Now we will add three point lighting to the scene to light up the details in the
 
 After adding three point lighting, we are now getting much more details in the texture. However, from far away the details can blend since the dragon is black. In a dark area, such as a dungeon, we can add a moving light on top of the dragon to get extra detail, while still having our scene be dark. I noticed they did this in the Dark Souls games, where if you're running around a dungeon you can tell there is an orb of light around the character. We can add this later when building out the level.
 
+# Finite State Machine
+
+Now that we have the scene and the dragon set up we can begin creating the AI. Our strategy as usual will be to make the system as modular as possible so that we can work efficiently.
+
+We will start by creating the CharacterState class:
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CharacterState : MonoBehaviour
+{
+    [SerializeField]
+    public enum State
+    {
+        None,
+        Idle,
+        Pursue,
+        Attacking,
+        DoneAttacking,
+        Pause,
+        TookDamage,
+        BattleStance,
+        PlayerDefeated, 
+        Death,
+        PostDeath
+    }
+
+    [SerializeField]
+    public State state = State.None;
+}
+```
 
 
 # Input System
