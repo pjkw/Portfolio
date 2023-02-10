@@ -29,7 +29,9 @@ Even with turning the skybox back on, the dragon is too dark in the shadows and 
 
 ![Dragon](https://github.com/pjkw/Portfolio/blob/main/images/Dragon.png)
 
+By default, Unity comes with the ambient light set to a middle gray, which can be a little flat. We will turn off ambient light by setting the color values to dark, effectively removing ambient light, and letting us set up our own lighting.
 
+![Ambient Light](https://github.com/pjkw/Portfolio/blob/main/images/Ambient%20Light.png)
 
 
 # Input System
