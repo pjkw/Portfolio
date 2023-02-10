@@ -10,7 +10,15 @@ I wanted the player to start in a small closed space, as many old FPS games have
 
 # Developing an AI Character
 
+In this section we will go over the process of developing an AI character.
+
 ## Scene set up
+
+We start off by creating a new empty scene. In this scene we will include our core functionality, such as the player character, the Game Manager, and other Systems. (Note that we would like some of these to be prefabs but since we are still continually reworking these components we will turn them into prefabs once they are closer to completion.)
+
+
+
+
 
 
 
