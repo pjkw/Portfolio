@@ -17,6 +17,11 @@ In this section we will go over the process of developing an AI character.
 We start off by creating a new empty scene. In this scene we will include our core functionality, such as the player character, the Game Manager, and other Systems. (Note that we would like some of these to be prefabs but since we are still continually reworking these components we will turn them into prefabs once they are closer to completion.)
 
 
+![Scene Setup](https://github.com/pjkw/Portfolio/blob/main/images/Scene%20Setup.png)
+
+To start off we create a plane with a checkered material to keep things simple and focus just on our new character.
+
+![Empty Scene](https://github.com/pjkw/Portfolio/blob/main/images/Empty%20Scene.png)
 
 
 
