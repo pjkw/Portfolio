@@ -23,11 +23,15 @@ To start off we create a plane with a checkered material to keep things simple a
 
 ![Empty Scene](https://github.com/pjkw/Portfolio/blob/main/images/Empty%20Scene.png)
 
+## Asset import
+
 For the dragon, we will be using the Unka dragon asset from the Unity asset store: https://assetstore.unity.com/packages/3d/characters/creatures/unka-the-dragon-84283
 
 Even with turning the skybox back on, the dragon is too dark in the shadows and we are losing details.
 
 ![Dragon](https://github.com/pjkw/Portfolio/blob/main/images/Dragon.png)
+
+## Lighting
 
 By default, Unity comes with the ambient light set to a middle gray, which can be a little flat. We will turn off ambient light by setting the color values to dark, effectively removing ambient light, and letting us set up our own lighting.
 
