@@ -23,7 +23,7 @@ To start off we create a plane with a checkered material to keep things simple a
 
 ![Empty Scene](https://github.com/pjkw/Portfolio/blob/main/images/Empty%20Scene.png)
 
-
+For the dragon, we will be using the Unka dragon asset from the Unity asset store: https://assetstore.unity.com/packages/3d/characters/creatures/unka-the-dragon-84283
 
 
 
