@@ -43,6 +43,10 @@ Also, I wanted to avoid a flat terrain, and frame the landscape with cliffs and 
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Port%20Landscape.png)
 
+## Port Town
+
+To contrast the start of the level, with a heavy storm, rain, and lighting, I wanted to create a cozy tavern, where the player can find refugee from the storm, and also talk to an NPC to set up the first quest.
+
 # Developing an AI Character
 
 In this section we will go over the process of developing an AI character.
