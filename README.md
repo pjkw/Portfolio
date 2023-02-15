@@ -23,6 +23,8 @@ I wanted the player to start in a small closed space, as many old FPS games have
 
 The goal was to make a vertical slice of an RPG game. The setting is a fantasy medieval RPG, which would make finding assets easy for this type of game.
 
+The player starts by arriving from a distant land in a town port, to give a sense of entry into this world. There they are greeted by someone waiting for them, who takes them to the town tavern. This way the NPC can give a sense of direction for the player.
+
 ## Port Blockout
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Port%20Blockout.png)
