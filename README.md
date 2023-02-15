@@ -21,7 +21,7 @@ I wanted the player to start in a small closed space, as many old FPS games have
 
 # Vertical Slice
 
-The goal was to make a vertical slice of an RPG game. 
+The goal was to make a vertical slice of an RPG game. The setting is a fantasy medieval RPG, which would make finding assets easy for this type of game.
 
 ## Port Blockout
 
