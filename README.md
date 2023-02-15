@@ -4,6 +4,12 @@ Welcome to my portfolio! I love working with Unity and C#! Originally I started 
 
 I started my first Unity project in 2018, and still remember jumping into the editor and being flooded with many cool new features. The journey was long, but I have consistently worked in the Unity editor ever since, and hope to share here my portfolio and some details of the process.
 
+# Contents
+
+I. Level Blockout
+
+II. Code Samples
+
 # RPG Game
 
 I wanted to make a vertical slice for an RPG game. Wtih a vertical slice I could experiment with systems, while efficiently moving forward. I've on RPG games before and this time I wanted to put to use the lessons I've learned from the past. 
