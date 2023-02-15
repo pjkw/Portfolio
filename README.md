@@ -19,7 +19,9 @@ I wanted to make a vertical slice for an RPG game. Wtih a vertical slice I could
 I wanted the player to start in a small closed space, as many old FPS games have done. I also wanted the player to start in a comfortable space, so they can gently ease into the game. To make the player more comforable I worked on a fire torch, including the comforting sounds of fire.
 
 
-# Port
+# Vertical Slice
+
+The goal was to make a vertical slice of an RPG game. 
 
 ## Port Blockout
 
