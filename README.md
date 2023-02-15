@@ -39,6 +39,10 @@ And a highrise area, so the high tide does not wash up on the port:
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Highrise.png)
 
+Also, I wanted to avoid a flat terrain, and frame the landscape with cliffs and mountains, surrounding the port:
+
+![](https://github.com/pjkw/Portfolio/blob/main/images/Port%20Landscape.png)
+
 # Developing an AI Character
 
 In this section we will go over the process of developing an AI character.
