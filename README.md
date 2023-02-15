@@ -56,6 +56,16 @@ Also, I wanted to avoid a flat terrain, and frame the landscape with cliffs and 
 
 To contrast the start of the level, with a heavy storm, rain, and lighting, I wanted to create a cozy tavern, where the player can find refugee from the storm, and also talk to an NPC to set up the first quest.
 
+## Castle Blockout
+
+Overseeing the port from high above, I wanted to fill the horizon with a castle, high on top of the cliffs. Functionally this make sense as a castle would be guarding an important area such as a port, from a safe location up on the cliffs, which also give them a lookout point on any attacking ships coming from the sea.
+
+Having a castle nearby will also help with creating the starting quests.
+
+![](https://github.com/pjkw/Portfolio/blob/main/images/Castle.png)
+
+
+
 # Developing an AI Character
 
 In this section we will go over the process of developing an AI character.
