@@ -1,6 +1,6 @@
 # Portfolio
 
-Welcome! This is the portfolio for Piotr Kwiatkowski. I am a software engineer with a focus on gameplay programming, game and level design.
+Welcome! I am Piotr (Peter) Kwiatkowski, and this is my portfolio. I am a software engineer with a focus on gameplay programming, game and level design.
 
 ![](https://github.com/pjkw/Portfolio/blob/main/gifs/dungeon.gif)
 
