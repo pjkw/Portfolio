@@ -19,6 +19,13 @@ The goal was to make a vertical slice of an RPG game. The setting is a fantasy m
 
 The player starts by arriving from a distant land in a town port, to give a sense of entry into this world. There they are greeted by someone waiting for them, who takes them to the town tavern. This way the NPC can give a sense of direction for the player.
 
+# Game Preview
+
+Here is the vertical slice walkthrough: 
+
+And you can play the game here: (password: rpg)
+
+
 ## Port Blockout
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Port%20Blockout.png)
