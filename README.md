@@ -18,7 +18,7 @@ I wanted the player to start in a small closed space, as many old FPS games have
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Port%20Blockout.png)
 
-Designing this space we wanted to place emphases on functional spaces that would be useful for a port.
+Designing this space we wanted to place emphasis on functional spaces that would be useful for a port.
 
 For example, a cargo unloading area, close to the ship, so the crew can unload goods with a short distance from the ship:
 
