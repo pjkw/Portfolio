@@ -12,7 +12,8 @@ II. Code Samples
 
 # RPG Game
 
-I wanted to make a vertical slice for an RPG game. Wtih a vertical slice I could experiment with systems, while efficiently moving forward. I've on RPG games before and this time I wanted to put to use the lessons I've learned from the past. 
+I wanted to make a vertical slice for an RPG game. Wtih a vertical slice I could experiment with systems, while efficiently moving forward. I've on RPG games before and this time I wanted to put to use the lessons I've learned from the past.
+
 # Player Start
 
 I wanted the player to start in a small closed space, as many old FPS games have done. I also wanted the player to start in a comfortable space, so they can gently ease into the game. To make the player more comforable I worked on a fire torch, including the comforting sounds of fire.
@@ -24,7 +25,7 @@ I wanted the player to start in a small closed space, as many old FPS games have
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Port%20Blockout.png)
 
-Designing this space we wanted to place emphasis on functional spaces that would be useful for a port.
+In designing this space I wanted to place emphasis on functional spaces that would be useful for a port.
 
 For example, a cargo unloading area, close to the ship, so the crew can unload goods with a short distance from the ship:
 
