@@ -28,7 +28,7 @@ A ramp, to roll heavy cargo up:
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Ramp.png)
 
-And a highrise area, so the rising tides don't wash up on the port:
+And a highrise area, so the high tide does not wash up on the port:
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Highrise.png)
 
