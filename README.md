@@ -54,6 +54,14 @@ Also, I wanted to avoid a flat terrain, and frame the landscape with cliffs and 
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Port%20Landscape.png)
 
+## Laying in details after blocking out
+
+![](https://github.com/pjkw/Portfolio/blob/main/images/Supports.png)
+
+We set up the supports to go all the way down to the ocean floor, in case we want to dive later.
+
+![](https://github.com/pjkw/Portfolio/blob/main/images/Supports%20Ocean%20Floor.png)
+
 ## Port Town
 
 To contrast the start of the level, with a heavy storm, rain, and lighting, I wanted to create a cozy tavern, where the player can find refugee from the storm, and also talk to an NPC to set up the first quest.
