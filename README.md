@@ -6,6 +6,8 @@ Here is a link to my full resume:
 
 ![](https://github.com/pjkw/Portfolio/blob/main/gifs/dungeon.gif)
 
+![](https://github.com/pjkw/Portfolio/blob/main/images/Castle%20Horizon.png)
+
 # Contents
 
 I. Level Blockout
