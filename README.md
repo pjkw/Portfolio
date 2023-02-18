@@ -64,7 +64,7 @@ We set up the supports to go all the way down to the ocean floor, in case we wan
 
 We also don't want the player to just simply run straight through the level in a linear way. Here we provide a highrise platform for the player to get up on to observe ships far out to sea:
 
-![](https://github.com/pjkw/Portfolio/blob/main/images/Dock%20Highrise.png)
+![](https://github.com/pjkw/Portfolio/blob/main/images/Dock%20Platform.png)
 
 ## Port Town
 
