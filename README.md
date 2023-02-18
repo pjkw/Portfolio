@@ -66,6 +66,10 @@ We also don't want the player to just simply run straight through the level in a
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Dock%20Platform.png)
 
+## Dock with props
+
+![](https://github.com/pjkw/Portfolio/blob/main/gifs/Dock%20Blocked%20Out.gif)
+
 ## Port Town
 
 To contrast the start of the level, with a heavy storm, rain, and lighting, I wanted to create a cozy tavern, where the player can find refugee from the storm, and also talk to an NPC to set up the first quest.
