@@ -4,6 +4,8 @@ Hi, I'm Peter Kwiatkowski and this is my Unity portfolio.
 
 Resume:
 
+An RPG vertical slice:
+
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Menu%20Screen.png)
 
 ![](https://github.com/pjkw/Portfolio/blob/main/gifs/dungeon.gif)
