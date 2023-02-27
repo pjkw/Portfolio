@@ -2,7 +2,7 @@
 
 Hi, I'm Peter Kwiatkowski and this is my Unity portfolio.
 
-Here is a link to my resume:
+Resume:
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Menu%20Screen.png)
 
