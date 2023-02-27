@@ -18,6 +18,8 @@ Resume:
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Hilltop.png)
 
+![](https://github.com/pjkw/Portfolio/blob/main/images/terrain%202.png)
+
 # Contents
 
 I. Level Blockout
