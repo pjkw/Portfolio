@@ -8,6 +8,8 @@ Resume:
 
 ![](https://github.com/pjkw/Portfolio/blob/main/gifs/dungeon.gif)
 
+![](https://github.com/pjkw/Portfolio/blob/main/gifs/Beach%20Monster.gif)
+
 ![](https://github.com/pjkw/Portfolio/blob/main/images/House.png)
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Castle%20Horizon.png)
