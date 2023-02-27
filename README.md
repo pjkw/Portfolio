@@ -1,4 +1,4 @@
-# Peter Kwiatkowski Unity Portfolio
+# Unity Portfolio
 
 Hi, I'm Peter Kwiatkowski and this is my Unity portfolio.
 
