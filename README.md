@@ -1,6 +1,6 @@
 # Peter Kwiatkowski Unity Portfolio
 
-Welcome! My name is Piotr (Peter) Kwiatkowski, and this is my Unity portfolio.
+My name is Piotr (Peter) Kwiatkowski, and this is my Unity portfolio.
 
 Here is a link to my resume:
 
