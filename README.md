@@ -1,12 +1,14 @@
 # Peter Kwiatkowski Unity Portfolio
 
-Welcome! My name is Piotr (Peter) Kwiatkowski, and this is my Unity portfolio. As a software engineer my focus is on gameplay programming, game and level design. I can also do any general work with the Unity engine, having worked consistently with the Unity engine for the past 5 years.
+Welcome! My name is Piotr (Peter) Kwiatkowski, and this is my Unity portfolio.
 
-Here is a link to my full resume:
+Here is a link to my resume:
 
 ![](https://github.com/pjkw/Portfolio/blob/main/gifs/dungeon.gif)
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Castle%20Horizon.png)
+
+![](https://github.com/pjkw/Portfolio/blob/main/images/Hilltop.png)
 
 # Contents
 
