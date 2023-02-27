@@ -4,6 +4,7 @@ My name is Piotr (Peter) Kwiatkowski, and this is my Unity portfolio.
 
 Here is a link to my resume:
 
+![](https://github.com/pjkw/Portfolio/blob/main/images/Menu%20Screen.png)
 
 ![](https://github.com/pjkw/Portfolio/blob/main/gifs/dungeon.gif)
 
