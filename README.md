@@ -8,6 +8,10 @@ RPG vertical slice:
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Menu%20Screen.png)
 
+![](https://github.com/pjkw/Portfolio/blob/main/gifs/camp.gif)
+
+Higher resolution: https://imgur.com/a/joe5BFu
+
 Gif with audio: https://imgur.com/a/6XOoBB3
 
 ![](https://github.com/pjkw/Portfolio/blob/main/gifs/dungeon.gif)
