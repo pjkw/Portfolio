@@ -6,7 +6,7 @@ Resume:
 
 RPG vertical slice:
 
-![](https://github.com/pjkw/Portfolio/blob/main/images/Menu%20Screen.png)
+![](https://github.com/pjkw/Portfolio/blob/main/gifs/Menu%20gif.gif)
 
 https://imgur.com/a/WNYbRQp
 
