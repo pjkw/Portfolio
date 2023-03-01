@@ -10,7 +10,7 @@ RPG vertical slice:
 
 ![](https://github.com/pjkw/Portfolio/blob/main/gifs/camp.gif)
 
-Higher resolution: https://imgur.com/a/joe5BFu
+Higher resolution with audio: https://imgur.com/a/joe5BFu
 
 
 
