@@ -12,9 +12,11 @@ RPG vertical slice:
 
 Higher resolution: https://imgur.com/a/joe5BFu
 
-Gif with audio: https://imgur.com/a/6XOoBB3
+
 
 ![](https://github.com/pjkw/Portfolio/blob/main/gifs/dungeon.gif)
+
+Higher resolution with audio: https://imgur.com/a/6XOoBB3
 
 ![](https://github.com/pjkw/Portfolio/blob/main/gifs/Beach%20Monster.gif)
 
