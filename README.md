@@ -26,6 +26,8 @@ Gif with audio: https://imgur.com/a/6XOoBB3
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/terrain%202.png)
 
+![](https://github.com/pjkw/Portfolio/blob/main/images/Terrain%203.png)
+
 # Contents
 
 I. Level Blockout
