@@ -26,6 +26,10 @@ https://imgur.com/a/6XOoBB3
 
 ![](https://github.com/pjkw/Portfolio/blob/main/gifs/Beach%20Monster.gif)
 
+![](https://github.com/pjkw/Portfolio/blob/main/gifs/Ship%20gif.gif)
+
+https://imgur.com/a/0yIFrTF
+
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Port%203.png)
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Port%201.png)
