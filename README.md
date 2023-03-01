@@ -8,6 +8,8 @@ RPG vertical slice:
 
 ![](https://github.com/pjkw/Portfolio/blob/main/gifs/Menu%20gif.gif)
 
+![](https://github.com/pjkw/Portfolio/blob/main/gifs/Port%20Intro%20gif.gif)
+
 https://imgur.com/a/WNYbRQp
 
 ![](https://github.com/pjkw/Portfolio/blob/main/gifs/camp.gif)
