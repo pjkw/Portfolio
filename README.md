@@ -2,7 +2,6 @@
 
 Hi, I'm Peter Kwiatkowski and this is my Unity portfolio.
 
-Resume:
 
 RPG vertical slice:
 
@@ -57,3 +56,7 @@ https://imgur.com/a/0yIFrTF
 ![](https://github.com/pjkw/Portfolio/blob/main/images/Dock%20Platform.png)
 
 ![](https://github.com/pjkw/Portfolio/blob/main/gifs/Dock%20Blocked%20Out.gif)
+
+# Older Portfolio
+
+Here is my older portfolio: https://imgur.com/a/BSXfZ7Z
