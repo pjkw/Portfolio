@@ -66,6 +66,10 @@ https://imgur.com/a/0yIFrTF
 
 ![](https://github.com/pjkw/Portfolio/blob/main/images/World%20Design%203.png)
 
+![](https://github.com/pjkw/Portfolio/blob/main/gifs/World%20Gif%20Optimized.gif)
+
+https://imgur.com/a/WX9sHFf
+
 # Older Portfolio
 
 Here is my older portfolio: https://imgur.com/a/BSXfZ7Z
