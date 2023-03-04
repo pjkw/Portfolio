@@ -60,6 +60,10 @@ https://imgur.com/a/0yIFrTF
 
 ![](https://github.com/pjkw/Portfolio/blob/main/gifs/Dock%20Blocked%20Out.gif)
 
+![](https://github.com/pjkw/Portfolio/blob/main/images/World%20Design%201.png)
+
+![](https://github.com/pjkw/Portfolio/blob/main/images/World%20Design%202.png)
+
 # Older Portfolio
 
 Here is my older portfolio: https://imgur.com/a/BSXfZ7Z
