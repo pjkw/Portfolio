@@ -66,7 +66,7 @@ public class ItemSlotData : MonoBehaviour
 
 ## Combat AI
 
-Here is the framework for setting up an AI combat character. Although this still needs much work, the CharacterController component is written in a modular way where we can just attach any generic character with an animator from the Unity Asset store (or use Mixamo to auto rig), and this will work out of the box.
+Here is the framework for setting up an AI combat character. Although this still needs much work, the CharacterController component is written in a modular way where we can just attach any generic character with an animator from the Unity Asset store (or use Mixamo to auto rig), and this will work out of the box. (Note: the one thing that needs to be improved is extracting out the animation names, so they can be assigned in the inspector per character.)
 
 ```cs
 using System.Collections;
