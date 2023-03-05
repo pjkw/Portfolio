@@ -241,7 +241,6 @@ public class IdleState : CharacterState
     }
 }
 
-
 public class PursueState : CharacterState
 {
     NavMeshPath path;
@@ -327,7 +326,6 @@ public class PursueState : CharacterState
     }
 }
 
-
 public class AttackingState : CharacterState
 {
     private float attackDistance = 5.0f;
@@ -339,7 +337,6 @@ public class AttackingState : CharacterState
     private Vector3 dashStartPosition;
     private bool isDashing;
     bool cooldownTimerDone = false;
-
 
     public AttackingState(CharacterController characterController, Transform playerTransform, NavMeshAgent navMeshAgent, CharacterAnimationAPI characterAnimationAPI, FieldOfView fieldOfView) : base(characterController, playerTransform, navMeshAgent, characterAnimationAPI, fieldOfView)
     {
