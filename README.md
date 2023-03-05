@@ -273,17 +273,17 @@ public class PursueState : CharacterState
         timer = 0.0f;
     }
 
-    private bool IsPlayerWithinPursuitRadius()
+    bool IsPlayerWithinPursuitRadius()
     {
         return Vector3.Distance(characterController.transform.position, playerTransform.position) <= ArachnidSettings.pursueRadius;
     }
 
-    private bool IsPlayerWithinAttackDistance()
+    bool IsPlayerWithinAttackDistance()
     {
         return Vector3.Distance(characterController.transform.position, playerTransform.position) < attackDistance;
     }
 
-    private void FollowPlayer()
+    void FollowPlayer()
     {
         float distanceToPlayer = Vector3.Distance(characterController.transform.position, playerTransform.position);
 
@@ -299,7 +299,7 @@ public class PursueState : CharacterState
         navMeshAgent.SetPath(path);
     }
 
-    private void IncreaseAnimationSpeed(float speedIncrease)
+    void IncreaseAnimationSpeed(float speedIncrease)
     {
         characterAnimationAPI.SetAnimationSpeed(1.0f + speedIncrease);
     }
@@ -515,20 +515,20 @@ public class DoneAttackingState : CharacterState
         }
     }
 
-    private void MoveToPlayer()
+    void MoveToPlayer()
     {
         navMeshAgent.isStopped = false;
         navMeshAgent.SetDestination(playerTransform.position);
     }
 
-    private void RotateToPlayer()
+    void RotateToPlayer()
     {
         characterController.transform.rotation = Quaternion.Slerp(characterController.transform.rotation, ArachnidSettings.targetRotation, Time.deltaTime * rotationSpeed);
     }
 
     // main to restart attack after cool down, so this is the transition from State.DoneAttacking to State.Attacking
 
-    private void StartCooldown()
+    void StartCooldown()
     {
         navMeshAgent.isStopped = true;
 
