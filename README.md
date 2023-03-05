@@ -2,7 +2,7 @@
 
 Hi! This is my C# and Unity portfolio.
 
-Here are a few code samples from the project. The goal is to always keep everything modular with the least amount dependencies, but also treating data as a "single source of truth" that lives in one place.
+Here are a few code samples from the project. The goal is to always keep everything modular with the least amount dependencies, but also to treat data as a "single source of truth" that lives in one place.
 
 ## Inventory Setup
 
