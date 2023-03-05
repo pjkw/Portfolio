@@ -174,7 +174,6 @@ public abstract class CharacterState
     protected CharacterAnimationAPI characterAnimationAPI;
     protected FieldOfView fieldOfView;
 
-
     public enum State
     {
         None,
