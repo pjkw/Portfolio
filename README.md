@@ -103,14 +103,12 @@ public class CharacterController : MonoBehaviour
     void Start()
     {
         TransitionToState(CharacterState.State.Idle);
-
         stateText.SetText1("Idle");
     }
 
     void Update()
     {
         characterState.UpdateState();
-
         UpdatePlayerDistanceText();
     }
 
@@ -141,7 +139,6 @@ public class CharacterController : MonoBehaviour
                                                 fieldOfView);
                 stateText.SetText2("Idle");
                 break;
-
             case CharacterState.State.Pursue:
 
                 characterState = new PursueState( this,
@@ -150,10 +147,8 @@ public class CharacterController : MonoBehaviour
                                                 characterAnimationAPI,
                                                 fieldOfView);
                 stateText.SetText2("Pursue");
-
                 pathfinding.disablePathfinding = true;
                 break;
-            
             case CharacterState.State.Attacking:
 
                 characterState = new AttackingState( this,
@@ -163,7 +158,6 @@ public class CharacterController : MonoBehaviour
                                                 fieldOfView);
                 stateText.SetText2("Attacking");
                 break;
-
             case CharacterState.State.DoneAttacking:
                 stateText.SetText2("DoneAttacking");
                 characterState = new DoneAttackingState(this, playerTransform, navMeshAgent, characterAnimationAPI, fieldOfView);
@@ -297,12 +291,10 @@ public class PursueState : CharacterState
         {
             // here we can run to the player
         }
-
         else
         {
             // here walk to the player
         }
-
         navMeshAgent.CalculatePath(playerTransform.position, path);
         navMeshAgent.SetPath(path);
     }
@@ -334,7 +326,6 @@ public class PursueState : CharacterState
             FollowPlayer();
         }
     }
-
 }
 
 
@@ -356,7 +347,6 @@ public class AttackingState : CharacterState
         navMeshAgent.isStopped = true;
         isDashing = true;
         cooldownTimer = cooldown;
-
         Initialize();
     }
 
@@ -389,7 +379,6 @@ public class AttackingState : CharacterState
 
         ResetAgentSpeed();
         ResetAnimationSpeed();
-
         DetermineWhetherToAttackOrRest();
     }
 
@@ -429,9 +418,7 @@ public class AttackingState : CharacterState
 
             navMeshAgent.isStopped = false;
             navMeshAgent.SetDestination(playerTransform.position);
-
             cooldownTimer = 0.0f;
-
             TransitionToState(State.Pursue);
         }
 
@@ -439,8 +426,6 @@ public class AttackingState : CharacterState
 
         if (Vector3.Distance(characterController.transform.position, playerTransform.position) < attackDistance)
         {
-
-            // arachnidAudio.PlayRandomGrowl();
             // done attacking pauses and handles cooldown time,
             // afterwards calling State.Attack again so we can attack again (or do a randomized series of attack actions later)
 
@@ -450,7 +435,6 @@ public class AttackingState : CharacterState
             // instead of the creature continuously turning to face the player
 
             SetRotation(); 
-
             TransitionToState(State.DoneAttacking);
         }
     }
