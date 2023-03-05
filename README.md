@@ -6,7 +6,7 @@ Here are a few code samples from the project, followed by gifs of the app runnin
 
 Python code samples are available here: https://github.com/knightsUCF/COVIDGenomeAnalysis
 
-In grad school we mostly used Python for ML. The nature of the work was analyzing big data, more specifically the human genome sequence, which is 4 billion characters long, and using efficient algorithms in the process (such as Smith–Waterman).
+In grad school we mostly used Python for ML. The nature of the work was analyzing big data, more specifically the human genome sequence, which is 4 billion characters long, and using efficient algorithms in the process (such as Smith–Waterman and Burrows-Wheeler transform).
 
 The following portfolio is focused on C#, but I have also spent a lot of time with Python in the past.
 
