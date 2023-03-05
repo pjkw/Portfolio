@@ -4,6 +4,8 @@ Hi! This is my C# and Unity portfolio.
 
 Here are a few code samples from the project. The goal is to always keep everything modular with the least amount of dependencies, but also to treat data as a "single source of truth" that lives in one place.
 
+Python code samples are available here: https://github.com/knightsUCF/COVIDGenomeAnalysis
+
 ## Inventory Setup
 
 ```cs
