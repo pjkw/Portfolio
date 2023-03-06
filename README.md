@@ -416,7 +416,7 @@ public class AttackingState : CharacterState
     {
         if (Vector3.Distance(characterController.transform.position, playerTransform.position) > attackDistance)
         {
-            // i f the player is out of range, go back to the Pursue state
+            // if the player is out of range, go back to the Pursue state
 
             navMeshAgent.isStopped = false;
             navMeshAgent.SetDestination(playerTransform.position);
