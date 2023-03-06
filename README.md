@@ -68,6 +68,93 @@ public class ItemSlotData : MonoBehaviour
 }
 ```
 
+```cs
+using UnityEngine;
+using UnityEngine.UI;
+
+public class SlotPanel : MonoBehaviour
+{
+    public ItemData[] itemDatas;
+    public ItemSlotData[] itemSlots;
+
+    public void AddItem(int slotNumber, int itemId, string itemName, Sprite itemSprite, int quantity, Image image, bool isAvailable)
+    {
+        itemSlots[slotNumber] = new ItemSlotData(itemId, itemName, itemSprite, quantity, image, isAvailable, slotNumber);
+    }
+
+    public bool CheckIfSlotIsAvailable(int slotNumber)
+    {
+        if (itemSlots[slotNumber].isAvailable)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
+```
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class InventoryManager : MonoBehaviour
+{
+    [SerializeField] SlotPanel slotPanel;
+    [SerializeField] InventoryInputController inputController;
+
+    private Dictionary<int, int> itemQuantities = new Dictionary<int, int>();
+
+    public bool AddItem(GameObject go)
+    {
+        ItemData itemData = go.GetComponent<ItemData>();
+        
+        int availableSlotNumber = -1;
+        
+        for (int i = 0; i < slotPanel.itemSlots.Length; i++)
+        {
+            if (slotPanel.CheckIfSlotIsAvailable(i))
+            {
+                availableSlotNumber = i;
+                break;
+            }
+        }
+        
+        if (availableSlotNumber != -1)
+        {
+            ItemSlotData itemSlotData = slotPanel.itemSlots[availableSlotNumber];
+            slotPanel.AddItem(availableSlotNumber, itemData.itemId, itemData.itemName, itemData.itemSprite, 1, itemSlotData.image, false);
+            
+            if (itemQuantities.ContainsKey(itemData.itemId))
+            {
+                itemQuantities[itemData.itemId]++;
+            }
+            else itemQuantities[itemData.itemId] = 1;
+
+            // successfully added item to inventory
+            
+            return true;
+        }
+
+        // inventory full
+        
+        else return false;
+    }
+
+    public bool CheckItemExists(int itemId)
+    {
+        if (itemQuantities.ContainsKey(itemId) && itemQuantities[itemId] > 0)
+        {
+            return true;
+        }
+        else return false;
+    }
+}
+```
+
 ## Combat AI
 
 Here is the framework for setting up an AI combat character. Although this still needs much work, the CharacterController component is written in a modular way where we can just attach any generic character with an animator from the Unity Asset store (or use Mixamo to auto rig), and this will work out of the box. (Note: the one thing that needs to be improved is extracting out the animation names, so they can be assigned in the inspector per character.)
