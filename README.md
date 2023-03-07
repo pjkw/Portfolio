@@ -16,6 +16,9 @@ The following portfolio is focused on C#, but I have also used Python extensivel
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine;
+using UnityEngine.UI;
+
 public class ItemData : MonoBehaviour
 {
     public int itemId;
@@ -27,16 +30,16 @@ public class ItemData : MonoBehaviour
     public int armorClass;
     public Image itemImage;
 
-    public void SetInfo(int id, string name, string description, Sprite sprite, int quantity, int dmg, int ac)
+    public void SetInfo(int itemId, string itemName, string itemDescription, Sprite itemSprite, int maxQuantity, int damage, int armorClass)
     {
-        itemId = id;
-        itemName = name;
-        itemDescription = description;
-        itemSprite = sprite;
-        maxQuantity = quantity;
-        damage = dmg;
-        armorClass = ac;
-        itemImage.sprite = itemSprite;
+        this.itemId = itemId;
+        this.itemName = itemName;
+        this.itemDescription = itemDescription;
+        this.itemSprite = itemSprite;
+        this.maxQuantity = maxQuantity;
+        this.damage = damage;
+        this.armorClass = armorClass;
+        this.itemImage.sprite = itemSprite;
     }
 }
 ```
@@ -50,20 +53,17 @@ public class ItemSlotData : MonoBehaviour
     public int slotNumber;
     public int itemId;
     public string itemName;
-    public Sprite itemIcon;
     public int quantity;
-    public Image image;
     public bool isAvailable;
+    public Image image;
     
-    public ItemSlotData(int itemId, string itemName, Sprite itemIcon, int quantity, Image image, bool isAvailable, int slotNumber)
+    public void SetSlotData(int itemId, string itemName, Sprite sprite, int quantity)
     {
         this.itemId = itemId;
         this.itemName = itemName;
-        this.itemIcon = itemIcon;
         this.quantity = quantity;
-        this.image = image;
-        this.isAvailable = isAvailable;
-        this.slotNumber = slotNumber;
+        this.image.sprite = sprite;
+        this.image.enabled = true;
     }
 }
 ```
@@ -74,12 +74,12 @@ using UnityEngine.UI;
 
 public class SlotPanel : MonoBehaviour
 {
-    public ItemData[] itemDatas;
     public ItemSlotData[] itemSlots;
 
     public void AddItem(int slotNumber, int itemId, string itemName, Sprite itemSprite, int quantity, Image image, bool isAvailable)
     {
-        itemSlots[slotNumber] = new ItemSlotData(itemId, itemName, itemSprite, quantity, image, isAvailable, slotNumber);
+        ItemSlotData itemSlotData = itemSlots[slotNumber];
+        itemSlotData.SetSlotData(itemId, itemName, itemSprite, quantity);
     }
 
     public bool CheckIfSlotIsAvailable(int slotNumber)
@@ -103,10 +103,15 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] SlotPanel slotPanel;
-    [SerializeField] InventoryInputController inputController;
+    public static InventoryManager instance;
 
+    [SerializeField] SlotPanel slotPanel;
     private Dictionary<int, int> itemQuantities = new Dictionary<int, int>();
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     public bool AddItem(GameObject go)
     {
@@ -135,13 +140,34 @@ public class InventoryManager : MonoBehaviour
             else itemQuantities[itemData.itemId] = 1;
 
             // successfully added item to inventory
-            
+
             return true;
         }
+        else
+        {
+            // inventory full
+            return false;
+        }
+    }
 
-        // inventory full
-        
-        else return false;
+    public bool RemoveItem(int itemId)
+    {
+        if (itemQuantities.ContainsKey(itemId) && itemQuantities[itemId] > 0)
+        {
+            itemQuantities[itemId]--;
+
+            for (int i = 0; i < slotPanel.itemSlots.Length; i++)
+            {
+                if (!slotPanel.CheckIfSlotIsAvailable(i) && slotPanel.itemSlots[i].itemId == itemId)
+                {
+                    slotPanel.itemSlots[i].isAvailable = true;
+                    slotPanel.AddItem(i, 0, "", null, 0, null, true);
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     public bool CheckItemExists(int itemId)
