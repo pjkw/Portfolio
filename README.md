@@ -36,10 +36,9 @@ public class ItemData : MonoBehaviour
 
     public enum ItemClass
     {
-        Weapon,
-        Armor,
         Consumable,
-        Quest
+        Weapon,
+        Armor
     }
 
     public ItemClass itemClass;
@@ -48,18 +47,7 @@ public class ItemData : MonoBehaviour
     {
         Potion,
         Sword,
-        Axe,
-        Mace,
-        Dagger,
-        Bow,
-        Staff,
-        Shield,
-        Helmet,
-        Chest,
-        Gloves,
-        Boots,
-        Consumable,
-        Quest
+        Shield
     }
 
     // more specific than item class
