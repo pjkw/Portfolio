@@ -16,9 +16,6 @@ The following portfolio is focused on C#, but I have also used Python extensivel
 using UnityEngine;
 using UnityEngine.UI;
 
-using UnityEngine;
-using UnityEngine.UI;
-
 public class ItemData : MonoBehaviour
 {
     public int itemId;
@@ -29,6 +26,44 @@ public class ItemData : MonoBehaviour
     public int damage;
     public int armorClass;
     public Image itemImage;
+    
+    // for now we are just using a potion as an example
+    // if the item is not a potion then we can just leave the hp bonus at 0
+    // and similar for a mana potion
+    // we know whether to add a bonus by the item type
+    public int hpBonus;
+
+    public enum ItemClass
+    {
+        Weapon,
+        Armor,
+        Consumable,
+        Quest
+    }
+
+    public ItemClass itemClass;
+
+    public enum ItemType
+    {
+        Potion,
+        Sword,
+        Axe,
+        Mace,
+        Dagger,
+        Bow,
+        Staff,
+        Shield,
+        Helmet,
+        Chest,
+        Gloves,
+        Boots,
+        Consumable,
+        Quest
+    }
+
+    // more specific than item class
+
+    public ItemType itemType;
 
     public void SetInfo(int itemId, string itemName, string itemDescription, Sprite itemSprite, int maxQuantity, int damage, int armorClass)
     {
@@ -53,17 +88,32 @@ public class ItemSlotData : MonoBehaviour
     public int slotNumber;
     public int itemId;
     public string itemName;
+    public string itemDescription;
     public int quantity;
     public bool isAvailable;
     public Image image;
-    
-    public void SetSlotData(int itemId, string itemName, Sprite sprite, int quantity)
+    public ItemData.ItemClass itemClass;
+    public ItemData.ItemType itemType;
+
+    public int hpBonus;
+
+    public void SetSlotData(int itemId, string itemName, string itemDescription, Sprite sprite, int quantity, ItemData.ItemClass itemClass, ItemData.ItemType itemType, int hpBonus)
     {
         this.itemId = itemId;
         this.itemName = itemName;
+        this.itemDescription = itemDescription;
         this.quantity = quantity;
+        this.itemClass = itemClass;
+        this.itemType = itemType;
+        this.hpBonus = hpBonus;
         this.image.sprite = sprite;
         this.image.enabled = true;
+        isAvailable = false;
+    }
+
+    public void DisableImagePlaceHolder()
+    {
+        this.image.enabled = false;
     }
 }
 ```
@@ -75,11 +125,47 @@ using UnityEngine.UI;
 public class SlotPanel : MonoBehaviour
 {
     public ItemSlotData[] itemSlots;
+    
+    [SerializeField] InventoryAudio inventoryAudio;
 
-    public void AddItem(int slotNumber, int itemId, string itemName, Sprite itemSprite, int quantity, Image image, bool isAvailable)
+    public void OnClickSlotButton(Button button)
+    {
+        ItemSlotData itemSlotData = button.GetComponent<ItemSlotData>();
+
+        if (!itemSlotData.isAvailable)
+        {
+            if (itemSlotData.itemType == ItemData.ItemType.Potion)
+            {
+                Debug.Log("Potion item clicked");
+
+                // eventually we can pass the item type,
+                // to handle this in UseItem(),
+                // such as adding health for health potions,
+                // and adding mana for mana potions
+
+                inventoryAudio.PlayUsePotionSound();
+                UseItem(itemSlotData);
+            }
+        }
+    }
+
+    public void UseItem(ItemSlotData _itemSlotData)
+    {
+        if (_itemSlotData.itemType == ItemData.ItemType.Potion)
+        {
+            // add health or mana
+            // for now just add health
+
+            CharacterStats.instance.currentHealth += _itemSlotData.hpBonus;
+        }
+
+        InventoryManager.instance.RemoveItem(_itemSlotData.itemId);
+    }
+
+    public void AddItem(int slotNumber, int itemId, string itemName, string itemDescription, Sprite itemSprite, int quantity, Image image, bool isAvailable, ItemData.ItemClass itemClass, ItemData.ItemType itemType, int hpBonus)
     {
         ItemSlotData itemSlotData = itemSlots[slotNumber];
-        itemSlotData.SetSlotData(itemId, itemName, itemSprite, quantity);
+        itemSlotData.SetSlotData(itemId, itemName, itemDescription, itemSprite, quantity, itemClass, itemType, hpBonus); // Call SetSlotData with item class and type
     }
 
     public bool CheckIfSlotIsAvailable(int slotNumber)
@@ -116,9 +202,9 @@ public class InventoryManager : MonoBehaviour
     public bool AddItem(GameObject go)
     {
         ItemData itemData = go.GetComponent<ItemData>();
-        
+
         int availableSlotNumber = -1;
-        
+
         for (int i = 0; i < slotPanel.itemSlots.Length; i++)
         {
             if (slotPanel.CheckIfSlotIsAvailable(i))
@@ -127,12 +213,12 @@ public class InventoryManager : MonoBehaviour
                 break;
             }
         }
-        
+
         if (availableSlotNumber != -1)
         {
             ItemSlotData itemSlotData = slotPanel.itemSlots[availableSlotNumber];
-            slotPanel.AddItem(availableSlotNumber, itemData.itemId, itemData.itemName, itemData.itemDescription, itemData.itemSprite, 1, itemSlotData.image, false);
-            
+            slotPanel.AddItem(availableSlotNumber, itemData.itemId, itemData.itemName, itemData.itemDescription, itemData.itemSprite, 1, itemSlotData.image, false, itemData.itemClass, itemData.itemType, itemData.hpBonus);
+
             if (itemQuantities.ContainsKey(itemData.itemId))
             {
                 itemQuantities[itemData.itemId]++;
@@ -146,36 +232,39 @@ public class InventoryManager : MonoBehaviour
         else
         {
             // inventory full
+
             return false;
         }
     }
 
     public bool RemoveItem(int itemId)
+{
+    if (itemQuantities.ContainsKey(itemId) && itemQuantities[itemId] > 0)
     {
-        if (itemQuantities.ContainsKey(itemId) && itemQuantities[itemId] > 0)
+        if (itemQuantities[itemId] == 1)
         {
-            if (itemQuantities[itemId] == 1)
-            {
-                itemQuantities.Remove(itemId);
-            }
-            else
-            {
-                itemQuantities[itemId]--;
-            }
-
-            for (int i = 0; i < slotPanel.itemSlots.Length; i++)
-            {
-                if (!slotPanel.CheckIfSlotIsAvailable(i) && slotPanel.itemSlots[i].itemId == itemId)
-                {
-                    slotPanel.itemSlots[i].isAvailable = true;
-                    slotPanel.AddItem(i, 0, "", "", null, 0, null, true);
-                    return true;
-                }
-            }
+            itemQuantities.Remove(itemId);
+        }
+        else
+        {
+            itemQuantities[itemId]--;
         }
 
-        return false;
+        for (int i = 0; i < slotPanel.itemSlots.Length; i++)
+        {
+            if (!slotPanel.CheckIfSlotIsAvailable(i) && slotPanel.itemSlots[i].itemId == itemId)
+            {
+                slotPanel.itemSlots[i].isAvailable = true;
+                slotPanel.AddItem(i, 0, "", "", null, 0, null, true, ItemData.ItemClass.Weapon, ItemData.ItemType.Consumable, 0);
+                slotPanel.itemSlots[i].DisableImagePlaceHolder();
+                return true;
+            }
+        }
     }
+
+    return false;
+}
+
 
 
     public bool CheckItemExists(int itemId)
