@@ -131,7 +131,7 @@ public class InventoryManager : MonoBehaviour
         if (availableSlotNumber != -1)
         {
             ItemSlotData itemSlotData = slotPanel.itemSlots[availableSlotNumber];
-            slotPanel.AddItem(availableSlotNumber, itemData.itemId, itemData.itemName, itemData.itemSprite, 1, itemSlotData.image, false);
+            slotPanel.AddItem(availableSlotNumber, itemData.itemId, itemData.itemName, itemData.itemDescription, itemData.itemSprite, 1, itemSlotData.image, false);
             
             if (itemQuantities.ContainsKey(itemData.itemId))
             {
@@ -154,14 +154,21 @@ public class InventoryManager : MonoBehaviour
     {
         if (itemQuantities.ContainsKey(itemId) && itemQuantities[itemId] > 0)
         {
-            itemQuantities[itemId]--;
+            if (itemQuantities[itemId] == 1)
+            {
+                itemQuantities.Remove(itemId);
+            }
+            else
+            {
+                itemQuantities[itemId]--;
+            }
 
             for (int i = 0; i < slotPanel.itemSlots.Length; i++)
             {
                 if (!slotPanel.CheckIfSlotIsAvailable(i) && slotPanel.itemSlots[i].itemId == itemId)
                 {
                     slotPanel.itemSlots[i].isAvailable = true;
-                    slotPanel.AddItem(i, 0, "", null, 0, null, true);
+                    slotPanel.AddItem(i, 0, "", "", null, 0, null, true);
                     return true;
                 }
             }
@@ -169,6 +176,7 @@ public class InventoryManager : MonoBehaviour
 
         return false;
     }
+
 
     public bool CheckItemExists(int itemId)
     {
