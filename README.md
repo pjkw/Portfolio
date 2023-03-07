@@ -50,7 +50,7 @@ public class ItemData : MonoBehaviour
         Shield
     }
 
-    // more specific than item class
+    // more specific than the item class
 
     public ItemType itemType;
 
