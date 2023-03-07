@@ -31,6 +31,7 @@ public class ItemData : MonoBehaviour
     // if the item is not a potion then we can just leave the hp bonus at 0
     // and similar for a mana potion
     // we know whether to add a bonus by the item type
+    
     public int hpBonus;
 
     public enum ItemClass
