@@ -227,34 +227,32 @@ public class InventoryManager : MonoBehaviour
     }
 
     public bool RemoveItem(int itemId)
-{
-    if (itemQuantities.ContainsKey(itemId) && itemQuantities[itemId] > 0)
     {
-        if (itemQuantities[itemId] == 1)
+        if (itemQuantities.ContainsKey(itemId) && itemQuantities[itemId] > 0)
         {
-            itemQuantities.Remove(itemId);
-        }
-        else
-        {
-            itemQuantities[itemId]--;
-        }
-
-        for (int i = 0; i < slotPanel.itemSlots.Length; i++)
-        {
-            if (!slotPanel.CheckIfSlotIsAvailable(i) && slotPanel.itemSlots[i].itemId == itemId)
+            if (itemQuantities[itemId] == 1)
             {
-                slotPanel.itemSlots[i].isAvailable = true;
-                slotPanel.AddItem(i, 0, "", "", null, 0, null, true, ItemData.ItemClass.Weapon, ItemData.ItemType.Consumable, 0);
-                slotPanel.itemSlots[i].DisableImagePlaceHolder();
-                return true;
+                itemQuantities.Remove(itemId);
+            }
+            else
+            {
+                itemQuantities[itemId]--;
+            }
+
+            for (int i = 0; i < slotPanel.itemSlots.Length; i++)
+            {
+                if (!slotPanel.CheckIfSlotIsAvailable(i) && slotPanel.itemSlots[i].itemId == itemId)
+                {
+                    slotPanel.itemSlots[i].isAvailable = true;
+                    slotPanel.AddItem(i, 0, "", "", null, 0, null, true, ItemData.ItemClass.Weapon, ItemData.ItemType.Potion, 0);
+                    slotPanel.itemSlots[i].DisableImagePlaceHolder();
+                    return true;
+                }
             }
         }
+
+        return false;
     }
-
-    return false;
-}
-
-
 
     public bool CheckItemExists(int itemId)
     {
